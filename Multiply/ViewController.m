@@ -10,12 +10,10 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UISlider *mySlider;
 @property (strong, nonatomic) IBOutlet UITextField *myNumber;
 @property (strong, nonatomic) IBOutlet UILabel *myMultiplier;
 @property (weak, nonatomic) IBOutlet UILabel *myAnswer;
-
-
-@property (weak, nonatomic) IBOutlet UISlider *myMultiplierSlider;
 @property (strong, nonatomic) IBOutlet UIButton *resignButtonView;
 
 @end
@@ -23,17 +21,12 @@
 @implementation ViewController
 
 -(IBAction)adjustMyMultiplier:(UISlider*) sender {
-    self.myMultiplier.text = [NSString stringWithFormat:@"%d", (int)self.myMultiplierSlider.value];
+    self.myMultiplier.text = [NSString stringWithFormat:@"%d", (int)self.mySlider.value];
 }
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
-
-
 - (IBAction)onCalculateButtonPressed:(id)sender {
 
     int number = [self.myNumber.text integerValue];
